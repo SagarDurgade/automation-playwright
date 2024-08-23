@@ -1,11 +1,13 @@
 import { test, expect, chromium } from '@playwright/test';
 
-test('amazon', async ({ }) => {
+test('amazon test', async ({ }) => {
   test.setTimeout(60000)
   const browser = await chromium.launch()
   const context = await browser.newContext()
   const page = await context.newPage()
+  const page1 = await context.newPage()
   await page.goto('https://www.amazon.in/')
+  await page1.goto('https://www.amazon.in/')
 
   expect(await page.title()).toContain('Amazon')
 
